@@ -10,6 +10,9 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+const Local_Port = 3000;
+const Prod_Port = process.env.PORT;
+
 /**
  * Create MongoDB database
  *
@@ -202,6 +205,6 @@ app.post("/delete", (req, res) => {
   }
 });
 
-app.listen(3000, function () {
+app.listen(Prod_Port || Local_Port, function () {
   console.log("Server started on port 3000");
 });
