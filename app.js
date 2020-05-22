@@ -4,12 +4,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
 const app = express();
-const config = require( "./config.js");
+const config = require(__dirname + "/config.js");
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
 
 const Local_Port = 3000;
 const Prod_Port = process.env.PORT;
